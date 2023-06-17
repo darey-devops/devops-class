@@ -1,0 +1,82 @@
+1. First clone the Repo in your own Github account
+https://github.com/NiniiGit/argocd-demo.git
+
+2. Check if you're able to access the lab cluster
+kubectl get nodes
+
+3. Lets create a namespace where we will install ArgoCD.
+kubectl create ns argocd
+
+4. Run prerequisites for ArgoCD 
+kubectl -n argocd apply -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+
+5. Check if there are pods running or not
+kubectl get pods -n argocd
+
+6. Download the ArgoCD Cli tool for running the ArgoCD dashboard
+curl -sSL -o argocd-linux-amd64 https://github.com/argoproj/argo-cd/releases/latest/download/argocd-linux-amd64
+sudo install -m 555 argocd-linux-amd64 /usr/local/bin/argocd
+rm argocd-linux-amd64
+
+7. In order to access ArgoCD UI, execute the command below
+argocd admin dashboard --address 0.0.0.0 --port 8085 --namespace argocd
+
+You will be able to see the ArgoCD dashboard if you hit https://0.0.0.0:8085 locally
+
+Note that, this will not request any credentials from you since we are running this locally. 
+
+( for local development, this approach is okay but for actual production usecase, we would follow the practice of exposing argocd as ingress or on loadbalancer to let your teams access it via proper authentication mechanism like LDAP etc)
+
+--> If you face an issue like 
+"Argocd getting started guide getting FATA[0000] configmap "argocd-cm" not found error"
+
+Then execute this command:
+kubectl config set-context --current --namespace=argocd
+
+Otherwise another way of switching context is kubens.
+"kubens is a command-line utility that allows you to switch between Kubernetes namespaces easily."
+
+1. Download the latest release of the kubectx and kubens utilities from the GitHub repository:
+
+curl -LO https://github.com/ahmetb/kubectx/releases/download/v0.9.4/kubectx_v0.9.4_linux_x86_64.tar.gz
+curl -LO https://github.com/ahmetb/kubectx/releases/download/v0.9.4/kubens_v0.9.4_linux_x86_64.tar.gz
+
+2. Extract the downloaded archives:
+
+tar -xzvf kubectx_v0.9.4_linux_x86_64.tar.gz
+tar -xzvf kubens_v0.9.4_linux_x86_64.tar.gz
+
+3. Move the kubectx and kubens binaries to a directory in your $PATH, such as /usr/local/bin:
+
+sudo mv kubectx /usr/local/bin/
+sudo mv kubens /usr/local/bin/
+
+4. Switch to argocd namespace using below command
+
+kubens argocd 
+
+and then run
+
+argocd admin dashboard --address 0.0.0.0 --port 8085 --namespace argocd
+
+In case we want to expose the ArgoCD dashboard with ingress, it will ask for credentials and we can get the credentials from that. 
+
+kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d && echo
+
+It will give you username and password as secret which you can use to do this. 
+
+**Lets deploy the sample application:**
+
+1. Fork this repo. 
+https://github.com/NiniiGit/podinfo-demo
+
+2. Click create in ArgoCD UI
+3. Put application name, project name and sync policy as automatic
+4. Make sure check Prune resources and self heal. So that it can automatically heal and delete the resources. 
+
+Then from the source section add the repo link from your github.
+and path should set with charts/podsinfo
+
+destination section should be default.
+
+
