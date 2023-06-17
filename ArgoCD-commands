@@ -80,3 +80,7 @@ and path should set with charts/podsinfo
 destination section should be default.
 
 
+In case if you want to delete everything
+
+kubectl -n argocd delete -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+
