@@ -78,3 +78,11 @@ Make sure you store this password securely as it will be used to gain access to 
 ```bash
 kubectl port-forward svc/argocd-server -n argocd 8080:443
 
+![ArcoCD Server](arcocd-server-running.png)
+
+
+Navigate to http://localhost:8080 in your browser and you should be greeted with a screen similar to the one below.
+
+![ArgoCD Dashboard](https://miro.medium.com/v2/resize:fit:1400/format:webp/0*jq8KrXOWTUs1jQhL.png)
+
+
