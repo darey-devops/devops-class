@@ -23,7 +23,7 @@ GitOps is particularly well-suited for managing Kubernetes clusters. Kubernetes 
 5. Automation and synchronization: The GitOps tool will monitor the Git repository for changes. Any new commits or updates trigger the synchronization process, where the tool applies the changes to the Kubernetes cluster automatically.
 
 
-### ArgoCD Basics
+## ArgoCD Basics
 
 In this section, we will take a deep dive into ArgoCD, what it is, how to install it, and how to deploy a basic application into it.
 
@@ -68,7 +68,7 @@ Now that ArgoCD is successfully installed, you can proceed to the next steps to 
 ![argocd Pods](images/arcocd-pods.jpg)
 
 
-## Generating ArgoCD UI Password
+### Generating ArgoCD UI Password
 
 Now that the ArgoCD pods are up and running, we can access the ArgoCD web user interface (UI). However, before we proceed, we need to generate a password that will be used to log in to the ArgoCD UI. 
 
@@ -95,7 +95,9 @@ Sign in with the username ```admin``` and the password you got from the previous
 
 ![argocd-UI](https://miro.medium.com/v2/resize:fit:1400/format:webp/0*z0-YM4VOkxJ1fGQq.png)
 
-To deploy a basic application using ArgoCD, follow these steps:
+#### Deploy application with dashboard
+
+To deploy a basic application using ArgoCD Dashboard, follow these steps:
 
 1. Fork the Git repository created for this tutorial. You can find the repository [here]([repository_url](https://github.com/tahirjaved1/argocd-config)). This repository contains all the necessary files for the deployment.
 
@@ -143,7 +145,7 @@ There are 3 syncing options.
 
 There are other options as well to deploy the application in argocd. 
 
-1. Deploy application in Production with Declarative Approach
+#### Deploy application in Production with Declarative Approach
 
 Previously, we have used argocd dashboard UI to deploy the application. But that's not great if we are deploying something in production. For the real world application it is always recommended to deploy applications via declarative approach. Declarative approach means that you will have to create manifests of the application to be deployed in yaml. 
 
@@ -173,7 +175,9 @@ spec:
 ```
 
 1. Delete the existing deployed application from the dashboard.
+
 2. Deploy it by using kubectl command
+
 ```bash
 kubectl apply -f code/application.yaml -n argocd
 ```
@@ -183,7 +187,7 @@ As you can see it is automatically deployed and can be shown inside argocd dashb
 
 ![Deploy Application in argocd](images/application-yaml.jpg)
 
-2. Deploy application with Helm charts
+#### Deploy application with Helm charts
 
 We have seen the deployment methods starting from UI to then declarative method. We can deploy it with helm charts and the CLI option as well.
 
@@ -205,8 +209,6 @@ It will automatically sync the project and run it into the default namespace.
 
 We can deploy application with Cli based Argocd tool as well.
 
-
-----------------
 
 ## FluxCD Basics
 
