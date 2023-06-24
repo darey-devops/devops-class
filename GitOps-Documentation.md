@@ -95,7 +95,7 @@ Sign in with the username ```admin``` and the password you got from the previous
 
 ![argocd-UI](https://miro.medium.com/v2/resize:fit:1400/format:webp/0*z0-YM4VOkxJ1fGQq.png)
 
-#### Deploy application with dashboard
+### Deploy application with dashboard
 
 To deploy a basic application using ArgoCD Dashboard, follow these steps:
 
@@ -145,7 +145,7 @@ There are 3 syncing options.
 
 There are other options as well to deploy the application in argocd. 
 
-#### Deploy application in Production with Declarative Approach
+### Deploy application in Production with Declarative Approach
 
 Previously, we have used argocd dashboard UI to deploy the application. But that's not great if we are deploying something in production. For the real world application it is always recommended to deploy applications via declarative approach. Declarative approach means that you will have to create manifests of the application to be deployed in yaml. 
 
@@ -187,7 +187,7 @@ As you can see it is automatically deployed and can be shown inside argocd dashb
 
 ![Deploy Application in argocd](images/application-yaml.jpg)
 
-#### Deploy application with Helm charts
+### Deploy application with Helm charts
 
 We have seen the deployment methods starting from UI to then declarative method. We can deploy it with helm charts and the CLI option as well.
 
