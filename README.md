@@ -1,1 +1,1 @@
-# devops-class
+This repo is all about learning GitOps with the tools like FluxCD and the ArgoCD.

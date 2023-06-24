@@ -14,7 +14,6 @@ GitOps is particularly well-suited for managing Kubernetes clusters. Kubernetes 
 ![image](https://github.com/darey-devops/devops-class/assets/19388754/a0844b08-3bac-4d7f-8df2-185d1cd528c8)
 
 
-
 ### Steps to use GitOps with Kubernetes:
 
 1. Set up a Git repository: Create a Git repository to store the desired state of your Kubernetes cluster. This repository will hold the configuration files for your Kubernetes resources.
@@ -66,7 +65,7 @@ This command fetches the installation manifest from the official ArgoCD reposito
 
 Now that ArgoCD is successfully installed, you can proceed to the next steps to explore its functionality.
 
-![argocd Pods](arcocd-pods.jpg)
+![argocd Pods](images/arcocd-pods.jpg)
 
 
 ## Generating ArgoCD UI Password
@@ -85,7 +84,7 @@ Make sure you store this password securely as it will be used to gain access to 
 kubectl port-forward svc/argocd-server -n argocd 8080:443
 ```
 
-![argocd Server](arcocd-server-running.jpg)
+![argocd Server](images/arcocd-server-running.jpg)
 
 
 Navigate to http://localhost:8080 in your browser and you should be greeted with a screen similar to the one below.
@@ -120,18 +119,18 @@ To deploy a basic application using ArgoCD, follow these steps:
 
 After completing the above steps, your application deployment configuration will be created in ArgoCD.
 
-![Deploy Application in argocd](Deploy-application.jpg)
+![Deploy Application in argocd](images/Deploy-application.jpg)
 
 Make sure you select source and the destination for the application deployment.
 
 - Source should be demo folder which has deployment.yaml file
 - Destination should be kuberentes.
 
-![Deploy Application in argocd](Deploy-application-1.jpg)
+![Deploy Application in argocd](images/Deploy-application-1.jpg)
 
 Click on create button. Your application will be deployed.
 
-![Deploy Application in argocd](Deploy-application-2.jpg)
+![Deploy Application in argocd](images/Deploy-application-2.jpg)
 
 
 Lets talk about the Sync strategies used in the argocd.
@@ -176,13 +175,13 @@ spec:
 1. Delete the existing deployed application from the dashboard.
 2. Deploy it by using kubectl command
 ```bash
-kubectl apply -f application.yaml -n argocd
+kubectl apply -f code/application.yaml -n argocd
 ```
-![Deploy Application in argocd](application-yaml-1.jpg)
+![Deploy Application in argocd](images/application-yaml-1.jpg)
 
 As you can see it is automatically deployed and can be shown inside argocd dashboard.
 
-![Deploy Application in argocd](application-yaml.jpg)
+![Deploy Application in argocd](images/application-yaml.jpg)
 
 2. Deploy application with Helm charts
 
@@ -195,11 +194,11 @@ The only thing that changes is the configuration we set in the dashboard UI.
 - Click on creating new application
 - Set the Repo url and the branch
 - Make sure select the folder helm this time to select the helm charts instead of other deployment yamls.
-![Deploy Application in argocd](helm-1.jpg)
+![Deploy Application in argocd](images/helm-1.jpg)
 
 Once you select helm folder it will automatically detect the values.yaml file as shown below. 
 
-![Deploy Application in argocd](helm-2.jpg)
+![Deploy Application in argocd](images/helm-2.jpg)
 
 - Click on create
 It will automatically sync the project and run it into the default namespace.
@@ -213,7 +212,7 @@ We can deploy application with Cli based Argocd tool as well.
 
 [FluxCD](https://argo-cd.readthedocs.io/en/stable/) is an open-source tool that facilitates GitOps practices for continuous delivery and deployment of applications and infrastructure. It enables the automation and synchronization of deployments based on changes in Git repositories. 
 
-![FluxCD](flux-cd-diagram.png)
+![FluxCD](images/flux-cd-diagram.png)
 
 ### Features of FluxCD
 
