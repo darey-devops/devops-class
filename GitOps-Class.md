@@ -118,6 +118,9 @@ After completing the above steps, your application deployment configuration will
 
 Make sure you select source and the destination for the application deployment.
 
+- Source should be demo folder which has deployment.yaml file
+- Destination should be kuberentes.
+
 ![Deploy Application in ArcoCD](Deploy-application-1.jpg)
 
 Click on create button. Your application will be deployed.
