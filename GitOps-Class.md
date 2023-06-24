@@ -52,8 +52,7 @@ To install ArgoCD, use the following `kubectl` command:
 
 ```bash
 kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
-
-
+```
 
 This command fetches the installation manifest from the official ArgoCD repository and applies it to the `argocd` namespace.
 
@@ -72,11 +71,13 @@ To generate the password, execute the following command:
 
 ```bash
 kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -D; echo
+```
 
 Make sure you store this password securely as it will be used to gain access to your ArgoCD UI. Now, port-forward the argocd-server service to port 8080 of your local machine.
 
 ```bash
 kubectl port-forward svc/argocd-server -n argocd 8080:443
+```
 
 ![ArcoCD Server](arcocd-server-running.png)
 
