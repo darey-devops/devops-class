@@ -60,7 +60,7 @@ This command fetches the installation manifest from the official ArgoCD reposito
 
 Now that ArgoCD is successfully installed, you can proceed to the next steps to explore its functionality.
 
-![ArcoCD Pods](arcocd-pods.jpg)
+![argocd Pods](argocd-pods.jpg)
 
 
 ## Generating ArgoCD UI Password
@@ -79,7 +79,7 @@ Make sure you store this password securely as it will be used to gain access to 
 kubectl port-forward svc/argocd-server -n argocd 8080:443
 ```
 
-![ArcoCD Server](arcocd-server-running.jpg)
+![argocd Server](argocd-server-running.jpg)
 
 
 Navigate to http://localhost:8080 in your browser and you should be greeted with a screen similar to the one below.
@@ -88,7 +88,7 @@ Navigate to http://localhost:8080 in your browser and you should be greeted with
 
 Sign in with the username ```admin``` and the password you got from the previous step. On doing this, you should now see the ArgoCD web UI.
 
-![ArcoCD-UI](https://miro.medium.com/v2/resize:fit:1400/format:webp/0*z0-YM4VOkxJ1fGQq.png)
+![argocd-UI](https://miro.medium.com/v2/resize:fit:1400/format:webp/0*z0-YM4VOkxJ1fGQq.png)
 
 To deploy a basic application using ArgoCD, follow these steps:
 
@@ -114,33 +114,33 @@ To deploy a basic application using ArgoCD, follow these steps:
 
 After completing the above steps, your application deployment configuration will be created in ArgoCD.
 
-![Deploy Application in ArcoCD](Deploy-application.jpg)
+![Deploy Application in argocd](Deploy-application.jpg)
 
 Make sure you select source and the destination for the application deployment.
 
 - Source should be demo folder which has deployment.yaml file
 - Destination should be kuberentes.
 
-![Deploy Application in ArcoCD](Deploy-application-1.jpg)
+![Deploy Application in argocd](Deploy-application-1.jpg)
 
 Click on create button. Your application will be deployed.
 
-![Deploy Application in ArcoCD](Deploy-application-2.jpg)
+![Deploy Application in argocd](Deploy-application-2.jpg)
 
 
-Lets talk about the Sync strategies used in the ArcoCD.
+Lets talk about the Sync strategies used in the argocd.
 
 There are 3 syncing options.
 
-1. Manual or Automatic: This is used when you want ArcoCD do the action when a new change is detected in Git.
+1. Manual or Automatic: This is used when you want argocd do the action when a new change is detected in Git.
 2. Auto Prune: This will delete the cluster state when a file is deleted which was deployed.
-3. Self Heal: As the name suggest, it will heal the changes made in the Git. It will revert the manual changes to automatic by the ArcoCD.
+3. Self Heal: As the name suggest, it will heal the changes made in the Git. It will revert the manual changes to automatic by the argocd.
 
-There are other options as well to deploy the application in ArcoCD. 
+There are other options as well to deploy the application in argocd. 
 
 1. Deploy application in Production with Declarative Approach
 
-Previously, we have used ArcoCD dashboard UI to deploy the application. But that's not great if we are deploying something in production. For the real world application it is always recommended to deploy applications via declarative approach. Declarative approach means that you will have to create manifests of the application to be deployed in yaml. 
+Previously, we have used argocd dashboard UI to deploy the application. But that's not great if we are deploying something in production. For the real world application it is always recommended to deploy applications via declarative approach. Declarative approach means that you will have to create manifests of the application to be deployed in yaml. 
 
 Lets deploy it.
 
@@ -172,8 +172,33 @@ spec:
 ```bash
 kubectl apply -f application.yaml -n argocd
 ```
-![Deploy Application in ArcoCD](application-yaml-1.jpg)
+![Deploy Application in argocd](application-yaml-1.jpg)
 
-As you can see it is automatically deployed and can be shown inside ArcoCD dashboard.
+As you can see it is automatically deployed and can be shown inside argocd dashboard.
 
-![Deploy Application in ArcoCD](application-yaml.jpg)
+![Deploy Application in argocd](application-yaml.jpg)
+
+2. Deploy application with Helm charts
+
+We have seen the deployment methods starting from UI to then declarative method. We can deploy it with helm charts and the CLI option as well.
+
+We have Helm charts available in the repo. It has values.yaml file for storing the values. Lets deploy it. 
+
+The only thing that changes is the configuration we set in the dashboard UI. 
+
+- Click on creating new application
+- Set the Repo url and the branch
+- Make sure select the folder helm this time to select the helm charts instead of other deployment yamls.
+![Deploy Application in argocd](helm-1.jpg)
+
+Once you select helm folder it will automatically detect the values.yaml file as shown below. 
+
+![Deploy Application in argocd](helm-2.jpg)
+
+- Click on create
+It will automatically sync the project and run it into the default namespace.
+
+We can deploy application with Cli based Argocd tool as well.
+
+
+
