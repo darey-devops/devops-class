@@ -1,4 +1,4 @@
-## Introduction to GitOps:
+![image](https://github.com/darey-devops/devops-class/assets/19388754/56329e76-5119-4290-82f4-381fe97511f5)## Introduction to GitOps:
 GitOps is a software development and operations (DevOps) methodology that leverages Git as the single source of truth for managing infrastructure and application deployments. With GitOps, the desired state of the system is defined in Git repositories, and tools automate the process of applying those changes to the target environment.
 
 ### Why use GitOps:
@@ -10,6 +10,9 @@ GitOps is a software development and operations (DevOps) methodology that levera
 
 ### Using GitOps with Kubernetes:
 GitOps is particularly well-suited for managing Kubernetes clusters. Kubernetes resources, such as deployments, services, and configurations, can be defined in Git repositories, and GitOps tools take care of synchronizing the desired state with the actual cluster.
+
+![image](https://github.com/darey-devops/devops-class/assets/19388754/2a589a66-ad28-47bf-b166-1ba51a7fa39c)
+
 
 ### Steps to use GitOps with Kubernetes:
 
