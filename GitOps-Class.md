@@ -213,8 +213,7 @@ We can deploy application with Cli based Argocd tool as well.
 
 [FluxCD](https://argo-cd.readthedocs.io/en/stable/) is an open-source tool that facilitates GitOps practices for continuous delivery and deployment of applications and infrastructure. It enables the automation and synchronization of deployments based on changes in Git repositories. 
 
-![image](https://github.com/darey-devops/devops-class/assets/19388754/f567eb9f-2066-4a50-a679-e1c318c4e089)
-
+![FluxCD](flux-cd-diagram.png)
 
 ### Features of FluxCD
 
@@ -226,7 +225,7 @@ We can deploy application with Cli based Argocd tool as well.
 
 - Application and Infrastructure Deployments: FluxCD can be used to manage both application and infrastructure deployments. It integrates with various container orchestration platforms like Kubernetes and cloud providers to automate deployments of containers, services, and infrastructure components.
 
-- Rollback and Recovery: FluxCD provides the ability to rollback deployments in case of issues or errors. By maintaining a history of changes in Git, it allows organizations to easily revert to a previous version of the configuration and restore a known working state.
+- Rollback and Recovery: FluxCD provides the ability to roll back deployments in case of issues or errors. Maintaining a history of changes in Git, it allows organizations to easily revert to a previous version of the configuration and restore a known working state.
 
 - Scalability and Multi-Cluster Management: FluxCD supports managing multiple clusters and environments. It allows organizations to apply GitOps practices consistently across different environments, enabling scalability and reducing the complexity of managing deployments.
 
