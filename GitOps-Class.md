@@ -31,6 +31,9 @@ ArgoCD allows us to use Git as a single source of truth. This means that we defi
 
 In addition to watching the Git repository, it also watches the Kubernetes cluster for changes and syncs the state of the cluster back to what is defined in the Git repository if a change is detected in the cluster. Interestingly, a single ArgoCD installation can be used to manage multiple clusters as well.
 
+![image](https://github.com/darey-devops/devops-class/assets/19388754/d38f07a2-8eae-46cf-b8c8-33f8aa20eaf7)
+
+
 Let’s install ArgoCD and take a look at it in action.
 
 **Prerequisites**
@@ -209,6 +212,9 @@ We can deploy application with Cli based Argocd tool as well.
 ### FluxCD Basics
 
 FluxCD is an open-source tool that facilitates GitOps practices for continuous delivery and deployment of applications and infrastructure. It enables the automation and synchronization of deployments based on changes in Git repositories. 
+
+![image](https://github.com/darey-devops/devops-class/assets/19388754/fe747ad6-de1d-4b1e-9c01-2a1a33f1d71b)
+
 
 ### Features of FluxCD
 
