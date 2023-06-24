@@ -44,6 +44,8 @@ To fully understand what will be covered in this part of the tutorial, here are 
 - Helm: Helm is a package manager for Kubernetes. Later in the tutorial, we will take a look at how we can deploy helm charts with ArgoCD so you need to have it installed. Follow the steps [here](https://helm.sh/docs/intro/install/).
 - Finally, you’ll need to have basic knowledge of Kubernetes and the kubectl command-line tool.
 
+### Github Repo
+https://github.com/tahirjaved1/argocd-config.git
 
 ## Installation
 
