@@ -209,11 +209,11 @@ We can deploy application with Cli based Argocd tool as well.
 
 ----------------
 
-### FluxCD Basics
+## FluxCD Basics
 
 FluxCD is an open-source tool that facilitates GitOps practices for continuous delivery and deployment of applications and infrastructure. It enables the automation and synchronization of deployments based on changes in Git repositories. 
 
-![image](https://github.com/darey-devops/devops-class/assets/19388754/fe747ad6-de1d-4b1e-9c01-2a1a33f1d71b)
+![image](https://github.com/darey-devops/devops-class/assets/19388754/f567eb9f-2066-4a50-a679-e1c318c4e089)
 
 
 ### Features of FluxCD
@@ -230,7 +230,7 @@ FluxCD is an open-source tool that facilitates GitOps practices for continuous d
 
 - Scalability and Multi-Cluster Management: FluxCD supports managing multiple clusters and environments. It allows organizations to apply GitOps practices consistently across different environments, enabling scalability and reducing the complexity of managing deployments.
 
-Use Cases for FluxCD:
+### Use Cases for FluxCD:
 
 - Kubernetes Deployments: FluxCD can be used to automate the deployment of Kubernetes applications. It monitors a Git repository containing Kubernetes manifests and automatically updates the target cluster whenever changes are pushed.
 
