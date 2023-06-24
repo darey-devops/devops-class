@@ -133,4 +133,44 @@ There are 3 syncing options.
 2. Auto Prune: This will delete the cluster state when a file is deleted which was deployed.
 3. Self Heal: As the name suggest, it will heal the changes made in the Git. It will revert the manual changes to automatic by the ArcoCD.
 
+There are other options as well to deploy the application in ArcoCD. 
 
+1. Deploy application in Production with Declarative Approach
+
+Previously, we have used ArcoCD dashboard UI to deploy the application. But that's not great if we are deploying something in production. For the real world application it is always recommended to deploy applications via declarative approach. Declarative approach means that you will have to create manifests of the application to be deployed in yaml. 
+
+Lets deploy it.
+
+I have an application.yaml file 
+
+```bash
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: declarative-app
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/tahirjaved1/argocd-config
+    targetRevision: HEAD
+    path: "demo"
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true
+```
+
+1. Delete the existing deployed application from the dashboard.
+2. Deploy it by using kubectl command
+```bash
+kubectl apply -f application.yaml -n argocd
+```
+![Deploy Application in ArcoCD](application-yaml-1.jpg)
+
+As you can see it is automatically deployed and can be shown inside ArcoCD dashboard.
+
+![Deploy Application in ArcoCD](application-yaml.jpg)
