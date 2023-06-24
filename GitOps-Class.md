@@ -1,4 +1,4 @@
-![image](https://github.com/darey-devops/devops-class/assets/19388754/56329e76-5119-4290-82f4-381fe97511f5)## Introduction to GitOps:
+## Introduction to GitOps:
 GitOps is a software development and operations (DevOps) methodology that leverages Git as the single source of truth for managing infrastructure and application deployments. With GitOps, the desired state of the system is defined in Git repositories, and tools automate the process of applying those changes to the target environment.
 
 ### Why use GitOps:
