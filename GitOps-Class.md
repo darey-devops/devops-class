@@ -60,7 +60,7 @@ This command fetches the installation manifest from the official ArgoCD reposito
 
 Now that ArgoCD is successfully installed, you can proceed to the next steps to explore its functionality.
 
-![ArcoCD Pods](arcocd-pods.png)
+![ArcoCD Pods](arcocd-pods.jpg)
 
 
 ## Generating ArgoCD UI Password
@@ -79,11 +79,39 @@ Make sure you store this password securely as it will be used to gain access to 
 kubectl port-forward svc/argocd-server -n argocd 8080:443
 ```
 
-![ArcoCD Server](arcocd-server-running.png)
+![ArcoCD Server](arcocd-server-running.jpg)
 
 
 Navigate to http://localhost:8080 in your browser and you should be greeted with a screen similar to the one below.
 
 ![ArgoCD Dashboard](https://miro.medium.com/v2/resize:fit:1400/format:webp/0*jq8KrXOWTUs1jQhL.png)
 
+Sign in with the username ```admin``` and the password you got from the previous step. On doing this, you should now see the ArgoCD web UI.
 
+![ArcoCD-UI](https://miro.medium.com/v2/resize:fit:1400/format:webp/0*z0-YM4VOkxJ1fGQq.png)
+
+To deploy a basic application using ArgoCD, follow these steps:
+
+1. Fork the Git repository created for this tutorial. You can find the repository [here]([repository_url](https://github.com/tahirjaved1/argocd-config)). This repository contains all the necessary files for the deployment.
+
+2. Access the ArgoCD web UI and click on "Create application" or "New app".
+
+3. Fill in the following details in the provided fields:
+
+   - **Application Name**: Choose a name for your ArgoCD application. For this tutorial, we'll use "web-app", but you can use any name you prefer.
+   
+   - **Sync policy**: This determines how ArgoCD handles synchronization with the cluster when changes are detected in Git. For now, set this to "Manual".
+   
+   - **Project**: Set this to "default".
+   
+   - **Source**: Enter the URL of the Git repository you forked earlier.
+   
+   - **Path**: Specify the folder within the repository where your application manifest files reside. In this case, the folder is named "demo".
+   
+   - **Cluster URL**: This refers to the URL of the Kubernetes cluster you are connecting to. Since you are connecting to a local cluster, set this to "https://kubernetes.default.svc".
+   
+   - **Namespace**: This refers to the namespace where your application will be deployed. Set this to "default".
+
+After completing the above steps, your application deployment configuration will be created in ArgoCD.
+
+![Deploy Application in ArcoCD](Deploy-application.jpg)
