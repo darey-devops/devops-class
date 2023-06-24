@@ -115,3 +115,22 @@ To deploy a basic application using ArgoCD, follow these steps:
 After completing the above steps, your application deployment configuration will be created in ArgoCD.
 
 ![Deploy Application in ArcoCD](Deploy-application.jpg)
+
+Make sure you select source and the destination for the application deployment.
+
+![Deploy Application in ArcoCD](Deploy-application-1.jpg)
+
+Click on create button. Your application will be deployed.
+
+![Deploy Application in ArcoCD](Deploy-application-2.jpg)
+
+
+Lets talk about the Sync strategies used in the ArcoCD.
+
+There are 3 syncing options.
+
+1. Manual or Automatic: This is used when you want ArcoCD do the action when a new change is detected in Git.
+2. Auto Prune: This will delete the cluster state when a file is deleted which was deployed.
+3. Self Heal: As the name suggest, it will heal the changes made in the Git. It will revert the manual changes to automatic by the ArcoCD.
+
+
