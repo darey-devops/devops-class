@@ -11,7 +11,8 @@ GitOps is a software development and operations (DevOps) methodology that levera
 ### Using GitOps with Kubernetes:
 GitOps is particularly well-suited for managing Kubernetes clusters. Kubernetes resources, such as deployments, services, and configurations, can be defined in Git repositories, and GitOps tools take care of synchronizing the desired state with the actual cluster.
 
-![image](https://github.com/darey-devops/devops-class/assets/19388754/2a589a66-ad28-47bf-b166-1ba51a7fa39c)
+![image](https://github.com/darey-devops/devops-class/assets/19388754/a0844b08-3bac-4d7f-8df2-185d1cd528c8)
+
 
 
 ### Steps to use GitOps with Kubernetes:
@@ -25,14 +26,11 @@ GitOps is particularly well-suited for managing Kubernetes clusters. Kubernetes 
 
 ### ArgoCD Basics
 
-In this section, we will take a deep dive into ArgoCD, what it is, how to install, and how to deploy a basic application into it.
+In this section, we will take a deep dive into ArgoCD, what it is, how to install it, and how to deploy a basic application into it.
 
-ArgoCD allows us to use Git as a single source of truth. This means that we define all our application configuration as code in a Git repository and ArgoCD updates our cluster to match what is defined in the repository.
+[ArgoCD](https://argo-cd.readthedocs.io/en/stable/) allows us to use Git as a single source of truth. This means that we define all our application configurations as code in a Git repository and ArgoCD updates our cluster to match what is defined in the repository.
 
 In addition to watching the Git repository, it also watches the Kubernetes cluster for changes and syncs the state of the cluster back to what is defined in the Git repository if a change is detected in the cluster. Interestingly, a single ArgoCD installation can be used to manage multiple clusters as well.
-
-![image](https://github.com/darey-devops/devops-class/assets/19388754/d38f07a2-8eae-46cf-b8c8-33f8aa20eaf7)
-
 
 Let’s install ArgoCD and take a look at it in action.
 
@@ -213,7 +211,7 @@ We can deploy application with Cli based Argocd tool as well.
 
 ## FluxCD Basics
 
-FluxCD is an open-source tool that facilitates GitOps practices for continuous delivery and deployment of applications and infrastructure. It enables the automation and synchronization of deployments based on changes in Git repositories. 
+[FluxCD](https://argo-cd.readthedocs.io/en/stable/) is an open-source tool that facilitates GitOps practices for continuous delivery and deployment of applications and infrastructure. It enables the automation and synchronization of deployments based on changes in Git repositories. 
 
 ![image](https://github.com/darey-devops/devops-class/assets/19388754/f567eb9f-2066-4a50-a679-e1c318c4e089)
 
