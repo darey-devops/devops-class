@@ -68,7 +68,7 @@ This command fetches the installation manifest from the official ArgoCD reposito
 
 Now that ArgoCD is successfully installed, you can proceed to the next steps to explore its functionality.
 
-![argocd Pods](argocd-pods.jpg)
+![argocd Pods](arcocd-pods.jpg)
 
 
 ## Generating ArgoCD UI Password
@@ -87,7 +87,7 @@ Make sure you store this password securely as it will be used to gain access to 
 kubectl port-forward svc/argocd-server -n argocd 8080:443
 ```
 
-![argocd Server](argocd-server-running.jpg)
+![argocd Server](arcocd-server-running.jpg)
 
 
 Navigate to http://localhost:8080 in your browser and you should be greeted with a screen similar to the one below.
