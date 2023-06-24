@@ -201,4 +201,34 @@ It will automatically sync the project and run it into the default namespace.
 We can deploy application with Cli based Argocd tool as well.
 
 
+----------------
 
+### FluxCD Basics
+
+FluxCD is an open-source tool that facilitates GitOps practices for continuous delivery and deployment of applications and infrastructure. It enables the automation and synchronization of deployments based on changes in Git repositories. 
+
+### Features of FluxCD
+
+- Continuous Delivery: FluxCD enables organizations to achieve continuous delivery by automating the deployment and release processes. It monitors Git repositories for changes in application or infrastructure configurations and triggers deployments accordingly.
+
+- GitOps Principles: FluxCD adheres to GitOps principles, where the desired state of the system is defined in Git repositories. It uses a declarative approach, where configuration files specify the desired state of applications and infrastructure, and FluxCD reconciles the actual state with the desired state.
+
+- Automated Synchronization: FluxCD automatically synchronizes the desired state stored in Git with the running environments. It continuously monitors the Git repository for changes, and when a new commit is detected, it updates the target environment to reflect the changes.
+
+- Application and Infrastructure Deployments: FluxCD can be used to manage both application and infrastructure deployments. It integrates with various container orchestration platforms like Kubernetes and cloud providers to automate deployments of containers, services, and infrastructure components.
+
+- Rollback and Recovery: FluxCD provides the ability to rollback deployments in case of issues or errors. By maintaining a history of changes in Git, it allows organizations to easily revert to a previous version of the configuration and restore a known working state.
+
+Scalability and Multi-Cluster Management: FluxCD supports managing multiple clusters and environments. It allows organizations to apply GitOps practices consistently across different environments, enabling scalability and reducing the complexity of managing deployments.
+
+Use Cases for FluxCD:
+
+- Kubernetes Deployments: FluxCD can be used to automate the deployment of Kubernetes applications. It monitors a Git repository containing Kubernetes manifests and automatically updates the target cluster whenever changes are pushed.
+
+- Infrastructure as Code (IaC): FluxCD can be employed to manage Infrastructure as Code deployments. It can automatically update infrastructure configurations stored in Git repositories and trigger the deployment of infrastructure resources using tools like Terraform or AWS CloudFormation.
+
+- Multi-Environment Deployments: When an organization has multiple environments, such as development, staging, and production, FluxCD can help synchronize the desired state across these environments. It ensures that the changes applied in the Git repository propagate consistently to each environment.
+
+- GitOps for Configuration Management: FluxCD can be used to manage configuration files for various applications or services. It monitors Git repositories containing configuration files and automatically applies changes to the appropriate environments, ensuring consistent configuration management.
+
+## Demo
