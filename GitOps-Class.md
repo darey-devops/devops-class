@@ -228,7 +228,7 @@ FluxCD is an open-source tool that facilitates GitOps practices for continuous d
 
 - Rollback and Recovery: FluxCD provides the ability to rollback deployments in case of issues or errors. By maintaining a history of changes in Git, it allows organizations to easily revert to a previous version of the configuration and restore a known working state.
 
-Scalability and Multi-Cluster Management: FluxCD supports managing multiple clusters and environments. It allows organizations to apply GitOps practices consistently across different environments, enabling scalability and reducing the complexity of managing deployments.
+- Scalability and Multi-Cluster Management: FluxCD supports managing multiple clusters and environments. It allows organizations to apply GitOps practices consistently across different environments, enabling scalability and reducing the complexity of managing deployments.
 
 Use Cases for FluxCD:
 
@@ -240,4 +240,3 @@ Use Cases for FluxCD:
 
 - GitOps for Configuration Management: FluxCD can be used to manage configuration files for various applications or services. It monitors Git repositories containing configuration files and automatically applies changes to the appropriate environments, ensuring consistent configuration management.
 
-## Demo
