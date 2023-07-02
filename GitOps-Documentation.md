@@ -253,3 +253,111 @@ We can deploy application with Cli based Argocd tool as well.
 - Extensibility: ArgoCD offers more customization options and integration capabilities, allowing for greater flexibility.
 
 - Maturity and Adoption: FluxCD's longer history has resulted in a more mature tool, but ArgoCD is gaining popularity due to its powerful features and user-friendly interface.
+
+
+## Lets create Terraform based AWS Infrastructure and make changes with FluxCD
+
+Before moving forward, you should have some prerequisites. 
+
+- AWS Account
+- AWS Account access to create resources
+- FluxCD Cli installed
+- Terraform Cli installed
+
+I have put the code inside the repo with the branch of "fluxcd-class"
+
+```bash
+aws configure
+
+aws configure --profile eks-demo
+
+AWS Access Key ID [None]: <your_access_key_id>
+AWS Secret Access Key [None]: <your_secret_key>
+Default region name [None]: us-east-1 
+Default output format [None]: json
+
+aws eks list-clusters
+
+aws eks update-kubeconfig --name eks-demo-cluster
+
+kubectl get nodes
+
+kubectl get pods -A
+```
+
+1. Get SSH key from the pod itself and add it in the Deploy keys in Github Repo
+
+```bash
+kubectl logs flux-75f6578dc6-msk5l -n flux | grep "identity.pub"
+```
+
+2. Create a new file with an application
+
+echo-service.yaml
+
+```
+apiVersion: v1
+kind: Namespace
+metadata:
+  labels:
+    name: flux-demo
+  name: flux-demo
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flux-echo-app
+  namespace: flux-demo
+  labels:
+    app: flux-echo-app
+  annotations:
+    fluxcd.io/automated: "true"
+    fluxcd.io/tag.flux-echo-app: semver:~1.0.0
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: flux-echo-app
+  template:
+    metadata:
+      labels:
+        app: flux-echo-app
+    spec:
+      containers:
+        - name: flux-echo-app
+          image: hashicorp/http-echo
+          resources:
+            requests:
+              cpu: "200m"
+          args:
+            - "-text=you have hit echo app!"
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: flux-echo-app-service
+  namespace: flux-demo
+spec:
+  selector:
+    app: flux-echo-app
+  ports:
+    - port: 5678
+```
+
+3. Push this application to branch which you are using as the Fluxcd demo.
+
+```bash
+git status
+git commit -am "Added file"
+git push
+```
+
+It will automatically reconcile in few time intervals.
+
+4. Check with kubectl or k9s
+
+```bash
+kubectl get svc -A
+```
+
+Try to hit the external endpoint, You will be able to see some text:) 
