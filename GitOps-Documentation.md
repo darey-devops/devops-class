@@ -263,6 +263,7 @@ Before moving forward, you should have some prerequisites.
 - AWS Account access to create resources
 - FluxCD Cli installed
 - Terraform Cli installed
+You can read about the FluxCD [here](https://fluxcd.io/flux/concepts/).
 
 I have put the code inside the repo with the branch of "fluxcd-class"
 
